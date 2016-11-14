@@ -25,6 +25,8 @@ Requirements
 
 * Ansible >2.0
 * Galaxy-Role: zwischenloesung.yapkg
+* Python2/3 on target host
+* Generic UNIX with FHS
 
 Role Variables
 --------------
