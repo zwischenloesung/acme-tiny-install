@@ -8,7 +8,7 @@
 - name: test for an installation by the distro in /usr/bin
   stat:
     path: "/usr/bin/acme-tiny"
-  register: acme_tiny_bin
+  register: acme_tiny_usrbin
   when: acme_tiny_bin.stat.isreg is not defined or not acme_tiny_bin.stat.isreg
 
 - name: manually install acme-tiny
@@ -22,5 +22,5 @@
     owner: "root"
     group: "root"
     mode: "0755"
-  when: acme_tiny_bin.stat.isreg is not defined or not acme_tiny_bin.stat.isreg
+  when: ( acme_tiny_bin.stat.isreg is not defined or not acme_tiny_bin.stat.isreg ) and ( acme_tiny_usrbin.stat.isreg is not defined or not acme_tiny_usrbin.stat.isreg )
 
