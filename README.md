@@ -1,38 +1,59 @@
-Role Name
-=========
+Acme-Tiny Install
+=================
 
-A brief description of the role goes here.
+This is an ansible role for installing acme-tiny, first by trying the distro way but if this is not working, by directly getting the source from 'diafygi' on github - this can be overridden if an URL/Checksum is specified.
+
+Why we do not use one of the existing roles?
+
+* For the first reason read the section "Promise" below. We need something reliable.
+* This role will be used by [maestro](https://github.com/inofix/maestro) and must follow the logic used there. (Of course, the role can be used without maestro..)
+
+Promise
+-------
+
+Sure this role may change in the future, but we will only expand features to not break backwards compatibility.
+
+If radical changes should become necessary, a new role will be created, probably with an 'ng' or version suffix...
+
+Installation
+------------
+
+ # ansible-galaxy install zwischenloesung.acme-tiny-install
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+* Ansible >2.0
+* Galaxy-Role: zwischenloesung.yapkg
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+* http\_proxy (optional, string)
+* app\_\_acme\_\_tiny\_\_checksum (optional, string: default="sha256:bcd7cb56c280543c929cb4b7b2d1ed2d7ebabdae74fedc96b6a63f218c0b8ace")
+* app\_\_acme\_\_tiny\_\_download\_upstream (optional, string: default="https://raw.githubusercontent.com/diafygi/acme-tiny/master/acme\_tiny.py")
 
 Dependencies
 ------------
+
+* Galaxy-Role: zwischenloesung.yapkg
+* The Download-Source: default URL/checksum might change..
 
 A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - zwischenloesung.acme-tiny-install
 
 License
 -------
 
-BSD
+GPLv3
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+* Michael Lustenberger at [inofix.ch](http://www.inofix.ch)
