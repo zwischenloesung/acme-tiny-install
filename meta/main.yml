@@ -178,4 +178,4 @@ galaxy_info:
     - system
 
 dependencies:
-  - zwischenloesung.yapkg
+  - { role: zwischenloesung.yapkg, yapkg_group_name: 'acme-tiny', yapkg_names: [ 'acme-tiny' ], ignore_errors: True }
