@@ -12,7 +12,6 @@
   when: acme_tiny_bin.stat.isreg is not defined or not acme_tiny_bin.stat.isreg
 
 - name: manually install acme-tiny
-  get_url:
   environment:
     http_proxy: "{{ http_proxy }}"
   get_url:
