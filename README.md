@@ -3,6 +3,8 @@ Acme-Tiny Install
 
 This is an ansible role for installing acme-tiny, first by trying the distro way but if this is not working, by directly getting the source from 'diafygi' on github - this can be overridden if an URL/Checksum is specified.
 
+The role is meant to be run on the host that will later also play the zwischenloesung.acme-tiny-setup and the zwischenloesung.acme-tiny role.
+
 Why we do not use one of the existing roles?
 
 * For the first reason read the section "Promise" below. We need something reliable.
